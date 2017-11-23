@@ -27,7 +27,7 @@ public class PersonServiceClient {
 	public static void init(String personServiceServerUrl) {
 		PersonServiceClient client = get();
 		client.personServiceServerUrl = personServiceServerUrl;
-	}
+	} 
 
 	public static PersonServiceClient get() {
 		if (personServiceClient == null) {
