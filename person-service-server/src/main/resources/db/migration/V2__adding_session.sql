@@ -1,5 +1,0 @@
-CREATE TABLE session (
-	session_id TEXT NOT NULL,
-	ts TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL,
-	person_id INTEGER NOT NULL
-);
