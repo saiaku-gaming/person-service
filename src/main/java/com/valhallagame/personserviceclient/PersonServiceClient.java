@@ -1,9 +1,6 @@
 package com.valhallagame.personserviceclient;
 
 import java.io.IOException;
-import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
 
 import com.valhallagame.common.DefaultServicePortMappings;
 import com.valhallagame.common.RestCaller;
@@ -27,7 +24,7 @@ public class PersonServiceClient {
 	public static void init(String personServiceServerUrl) {
 		PersonServiceClient client = get();
 		client.personServiceServerUrl = personServiceServerUrl;
-	} 
+	}
 
 	public static PersonServiceClient get() {
 		if (personServiceClient == null) {
@@ -72,9 +69,9 @@ public class PersonServiceClient {
 				new TokenParameter(token), Session.class);
 	}
 
-	// TODO fix this with character service
-	public RestResponse<String> createDebugPerson() throws IOException {
-		return new RestResponse<>(HttpStatus.OK, Optional.of("THINGS DID IT"));
+	public RestResponse<Session> createDebugPerson(String token) throws IOException {
+		return restCaller.postCall(personServiceServerUrl + "/v1/person/create-debug-person", new TokenParameter(token),
+				Session.class);
 	}
 
 	public RestResponse<String> validateCredentials(String username, String password) throws IOException {
