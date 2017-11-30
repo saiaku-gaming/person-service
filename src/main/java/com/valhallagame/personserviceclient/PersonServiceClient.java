@@ -78,4 +78,9 @@ public class PersonServiceClient {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/validate-credentials",
 				new UsernamePasswordParameter(username, password), String.class);
 	}
+
+	public RestResponse<String> heartbeat(String username) throws IOException {
+		return restCaller.postCall(personServiceServerUrl + "/v1/person/heartbeat", new UsernameParameter(username),
+				String.class);
+	}
 }
