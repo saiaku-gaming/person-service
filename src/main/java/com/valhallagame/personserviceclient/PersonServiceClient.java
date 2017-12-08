@@ -1,7 +1,9 @@
 package com.valhallagame.personserviceclient;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.valhallagame.common.DefaultServicePortMappings;
 import com.valhallagame.common.RestCaller;
 import com.valhallagame.common.RestResponse;
@@ -82,5 +84,11 @@ public class PersonServiceClient {
 	public RestResponse<String> heartbeat(String username) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/heartbeat", new UsernameParameter(username),
 				String.class);
+	}
+
+	public RestResponse<List<Person>> onlinePersons() throws IOException {
+		return restCaller.postCall(personServiceServerUrl + "/v1/person/online-persons", null,
+				new TypeReference<List<Person>>() {
+				});
 	}
 }
