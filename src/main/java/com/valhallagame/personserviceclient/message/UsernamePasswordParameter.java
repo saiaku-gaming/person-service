@@ -1,4 +1,6 @@
-package com.valhallagame.personserviceclient.model;
+package com.valhallagame.personserviceclient.message;
+
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsernamePasswordParameter {
+	@NotNull
 	private String username;
+	@NotNull
 	private String password;
 }

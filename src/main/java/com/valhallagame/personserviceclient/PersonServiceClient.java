@@ -7,11 +7,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.valhallagame.common.DefaultServicePortMappings;
 import com.valhallagame.common.RestCaller;
 import com.valhallagame.common.RestResponse;
+import com.valhallagame.personserviceclient.message.TokenParameter;
+import com.valhallagame.personserviceclient.message.UsernameParameter;
+import com.valhallagame.personserviceclient.message.UsernamePasswordParameter;
 import com.valhallagame.personserviceclient.model.Person;
 import com.valhallagame.personserviceclient.model.Session;
-import com.valhallagame.personserviceclient.model.TokenParameter;
-import com.valhallagame.personserviceclient.model.UsernameParameter;
-import com.valhallagame.personserviceclient.model.UsernamePasswordParameter;
 
 public class PersonServiceClient {
 	private static PersonServiceClient personServiceClient;
