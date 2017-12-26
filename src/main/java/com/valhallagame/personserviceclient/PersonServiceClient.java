@@ -10,8 +10,8 @@ import com.valhallagame.common.RestResponse;
 import com.valhallagame.personserviceclient.message.TokenParameter;
 import com.valhallagame.personserviceclient.message.UsernameParameter;
 import com.valhallagame.personserviceclient.message.UsernamePasswordParameter;
-import com.valhallagame.personserviceclient.model.Person;
-import com.valhallagame.personserviceclient.model.Session;
+import com.valhallagame.personserviceclient.model.PersonData;
+import com.valhallagame.personserviceclient.model.SessionData;
 
 public class PersonServiceClient {
 	private static PersonServiceClient personServiceClient;
@@ -36,19 +36,19 @@ public class PersonServiceClient {
 		return personServiceClient;
 	}
 
-	public RestResponse<Person> getPerson(String username) throws IOException {
+	public RestResponse<PersonData> getPerson(String username) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/get-person", new UsernameParameter(username),
-				Person.class);
+				PersonData.class);
 	}
 
-	public RestResponse<Session> signup(String username, String password) throws IOException {
+	public RestResponse<SessionData> signup(String username, String password) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/signup",
-				new UsernamePasswordParameter(username, password), Session.class);
+				new UsernamePasswordParameter(username, password), SessionData.class);
 	}
 
-	public RestResponse<Session> login(String username, String password) throws IOException {
+	public RestResponse<SessionData> login(String username, String password) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/login",
-				new UsernamePasswordParameter(username, password), Session.class);
+				new UsernamePasswordParameter(username, password), SessionData.class);
 	}
 
 	public RestResponse<String> logout(String username) throws IOException {
@@ -66,14 +66,14 @@ public class PersonServiceClient {
 				new UsernameParameter(username), String.class);
 	}
 
-	public RestResponse<Session> getSessionFromToken(String token) throws IOException {
+	public RestResponse<SessionData> getSessionFromToken(String token) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/get-session-from-token",
-				new TokenParameter(token), Session.class);
+				new TokenParameter(token), SessionData.class);
 	}
 
-	public RestResponse<Session> createDebugPerson(String token) throws IOException {
+	public RestResponse<SessionData> createDebugPerson(String token) throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/create-debug-person", new TokenParameter(token),
-				Session.class);
+				SessionData.class);
 	}
 
 	public RestResponse<String> validateCredentials(String username, String password) throws IOException {
@@ -86,9 +86,9 @@ public class PersonServiceClient {
 				String.class);
 	}
 
-	public RestResponse<List<Person>> onlinePersons() throws IOException {
+	public RestResponse<List<PersonData>> onlinePersons() throws IOException {
 		return restCaller.postCall(personServiceServerUrl + "/v1/person/online-persons", null,
-				new TypeReference<List<Person>>() {
+				new TypeReference<List<PersonData>>() {
 				});
 	}
 }

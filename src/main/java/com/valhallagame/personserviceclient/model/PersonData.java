@@ -1,7 +1,5 @@
 package com.valhallagame.personserviceclient.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Session {
-	@JsonProperty("id")
-	private String id;
-
-	@JsonProperty("person")
-	private Person person;
+public class PersonData {
+	private String username;
+	private String displayUsername;
+	private boolean online;
+	private String clientVersion;
 }
