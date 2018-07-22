@@ -1,24 +1,15 @@
 package com.valhallagame.personserviceclient;
 
-import java.io.IOException;
-import java.util.List;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.valhallagame.common.DefaultServicePortMappings;
 import com.valhallagame.common.RestCaller;
 import com.valhallagame.common.RestResponse;
-import com.valhallagame.personserviceclient.message.CheckLoginParameter;
-import com.valhallagame.personserviceclient.message.CreateDebugPersonParameter;
-import com.valhallagame.personserviceclient.message.GetPersonParameter;
-import com.valhallagame.personserviceclient.message.GetSessionFromTokenParameter;
-import com.valhallagame.personserviceclient.message.HeartbeatParameter;
-import com.valhallagame.personserviceclient.message.LoginParameter;
-import com.valhallagame.personserviceclient.message.LogoutParameter;
-import com.valhallagame.personserviceclient.message.SignupParameter;
-import com.valhallagame.personserviceclient.message.UsernameAvailableParameter;
-import com.valhallagame.personserviceclient.message.ValidateCredentialsParameter;
+import com.valhallagame.personserviceclient.message.*;
 import com.valhallagame.personserviceclient.model.PersonData;
 import com.valhallagame.personserviceclient.model.SessionData;
+
+import java.io.IOException;
+import java.util.List;
 
 public class PersonServiceClient {
 	private static PersonServiceClient personServiceClient;
@@ -78,8 +69,8 @@ public class PersonServiceClient {
 				new GetSessionFromTokenParameter(token), SessionData.class);
 	}
 
-	public RestResponse<SessionData> createDebugPerson(String token) throws IOException {
-		return restCaller.postCall(personServiceServerUrl + "/v1/person/create-debug-person", new CreateDebugPersonParameter(token),
+	public RestResponse<SessionData> createDebugPerson(String token, String singleton) throws IOException {
+		return restCaller.postCall(personServiceServerUrl + "/v1/person/create-debug-person", new CreateDebugPersonParameter(token, singleton),
 				SessionData.class);
 	}
 
