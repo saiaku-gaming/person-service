@@ -85,4 +85,9 @@ public class PersonServiceClient extends AbstractServiceClient {
 				new TypeReference<List<PersonData>>() {
 				});
 	}
+
+    public RestResponse<SessionData> steamLogin(String authSessionTicket) throws IOException {
+        return restCaller.postCall(serviceServerUrl + "/v1/person/steam-login",
+                new SteamLoginParameter(authSessionTicket), SessionData.class);
+    }
 }
