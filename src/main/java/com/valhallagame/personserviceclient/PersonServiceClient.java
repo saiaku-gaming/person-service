@@ -90,4 +90,9 @@ public class PersonServiceClient extends AbstractServiceClient {
         return restCaller.postCall(serviceServerUrl + "/v1/person/steam-login",
                 new SteamLoginParameter(authSessionTicket), SessionData.class);
     }
+
+	public RestResponse<PersonData> finishedTutorial(String username) throws IOException {
+		return restCaller.postCall(serviceServerUrl + "/v1/person/finished-tutorial",
+				username, PersonData.class);
+	}
 }

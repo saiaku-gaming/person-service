@@ -12,4 +12,5 @@ public class PersonData {
 	private String displayUsername;
 	private boolean online;
 	private String clientVersion;
+    private boolean finishedTutorial;
 }
