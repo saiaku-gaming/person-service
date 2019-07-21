@@ -23,7 +23,8 @@ public class PersonServiceClient extends AbstractServiceClient {
 		client.serviceServerUrl = serviceServerUrl;
 	}
 
-	public static PersonServiceClient get() {
+    @SuppressWarnings("WeakerAccess")
+    public static PersonServiceClient get() {
 		if (personServiceClient == null) {
 			personServiceClient = new PersonServiceClient();
 		}
@@ -93,6 +94,6 @@ public class PersonServiceClient extends AbstractServiceClient {
 
 	public RestResponse<PersonData> finishedTutorial(String username) throws IOException {
 		return restCaller.postCall(serviceServerUrl + "/v1/person/finished-tutorial",
-				username, PersonData.class);
+                new FinishedTutorialParameter(username), PersonData.class);
 	}
 }
