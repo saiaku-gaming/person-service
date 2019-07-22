@@ -3,14 +3,13 @@ package com.valhallagame.personserviceclient.message;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateDebugPersonParameter {
-	@NotNull
+	@NotBlank
 	private String token;
 
 	private String singleton;
